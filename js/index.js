@@ -19,7 +19,7 @@ Vue.createApp({
         },
             error: null,
             userId: "",
-            selectedId:0
+            selectedId:1
         }
     },
      created() {
@@ -30,7 +30,7 @@ Vue.createApp({
     },
     computed: {
         lowInStock() {
-            const selItem = this.foodlist[this.selectedId];
+            const selItem = this.foodlist[this.selectedId-1];
             console.log(selItem);
 
             // const cabin = this.product.cabins[this.booking.cabinIndex];
