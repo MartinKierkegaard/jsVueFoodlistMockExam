@@ -31,6 +31,7 @@ Vue.createApp({
     computed: {
         lowInStock() {
             const selItem = this.foodlist[this.selectedId];
+            console.log(selItem);
 
             // const cabin = this.product.cabins[this.booking.cabinIndex];
             return `${selItem.name}: has ${selItem.inStock-selItem.lowLevel} units in stock before you need to reorder`
@@ -40,14 +41,7 @@ Vue.createApp({
         cleanList() {
             this.foodlist = [];
             this.error = null;
-            console.log("count post : " + this.posts.length);
+            console.log("count post : " + this.foodlist.length);
         },
-        //Read this for an example: https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
-        addNewFood() {  
-            newObj = "{id:"+this.newFood.id+","+"name:'"+this.newFood.name+"',inStock:"+this.newFood.inStock+",lowLevel:"+this.newFood.lowLevel+"}";
-            console.log("newobj: " + newObj)
-            this.foodlist.push(newObj);
-        },
-       
     }
 }).mount("#app")

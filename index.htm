@@ -24,26 +24,18 @@
 
         <button class="btn btn-warning" v-on:click="cleanList">Clean the list</button>
         <br>
-        <!-- <button class="btn btn-primary" v-on:click="getByUserId(userId)">Get By UserId</button> -->
-        <input v-model="selectedId" placeholder="selectedId" type="number">
-        <!-- <input v-model="newFood.name" placeholder="name" type="string"> -->
-        <!-- <input v-model.number="userId" placeholder="User Id" type="number"> -->
-
+        <input  v-if="foodlist.length > 0" v-model="selectedId" placeholder="selectedId" type="number">
         <br>
-        <button class="btn btn-primary" v-on:click="addNewFood">Add new Food</button>
-
         <div v-if="error" style="color: red">{{error}}</div>
-
-       
 
         <ul v-if="foodlist.length > 0">
             <li v-for="food in foodlist" v-bind:key="food.id">
                 Id {{food.id}}  : {{food.name}} : {{food.inStock}} : {{food.lowLevel}}
             </li>
         </ul>       
-        <div v-else style="font-style: italic;">No posts to show</div>
+        <div v-else style="font-style: italic;">No posts to show - refresh to see items again</div>
 
-        <div>{{lowInStock}}</div>
+        <div v-if="foodlist.length > 0">{{lowInStock}}</div>
 
     </div>
 
